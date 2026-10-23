@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Focus // Feed - Study vs Instagram Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="focus-vs-feed.css" />
+</head>
+<body>
+  <div class="app-wrapper">
+    <!-- Header Area -->
+    <header class="app-header">
+      <div class="header-pretitle">WHERE DID THE HOURS ACTUALLY GO</div>
+      <h1 class="header-title">
+        <span class="focus-part">Focus</span><span class="slash-part">//</span><span class="feed-part">Feed</span>
+      </h1>
+      <p class="header-description">
+        Track it live, or set it manually. One clock runs at a time &mdash; because you can't actually do both.
+      </p>
+      
+      <!-- Student Badge -->
+      <div class="student-meta-badge">
+        <span class="dot"></span> Akshan Motghare &bull; PRN: 24070521276
+      </div>
+    </header>
+
+    <!-- Split Timer Container (Dual Card) -->
+    <main class="dual-tracker-card">
+      <!-- Left Half: Studying (Light Theme) -->
+      <section class="tracker-column study-column" id="studyColumn">
+        <div class="column-header">
+          <span class="status-indicator">
+            <span class="indicator-dot study-dot"></span>
+            <span class="indicator-text">STUDYING</span>
+          </span>
+        </div>
+
+        <div class="timer-display-wrap">
+          <div class="timer-display font-mono" id="studyTimerDisplay">03:12:00</div>
+        </div>
+
+        <div class="action-btn-wrap">
+          <button type="button" class="tracker-action-btn study-btn" id="studyToggleBtn">
+            Start Studying
+          </button>
+          <div class="session-count-text" id="studySessionText">2 sessions today</div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="manual-entry-section">
+          <div class="manual-label">SET MANUALLY</div>
+          <div class="manual-inputs-row">
+            <input type="number" id="studyHoursInput" class="manual-input study-manual" placeholder="hh" min="0" max="99" />
+            <input type="number" id="studyMinutesInput" class="manual-input study-manual" placeholder="mm" min="0" max="59" />
+          </div>
+          <button type="button" class="set-total-btn study-set-btn" id="studySetTotalBtn">
+            Set total
+          </button>
+        </div>
+      </section>
+
+      <!-- Right Half: Instagram (Dark Theme) -->
+      <section class="tracker-column feed-column" id="feedColumn">
+        <div class="column-header">
+          <span class="status-indicator">
+            <span class="indicator-dot feed-dot"></span>
+            <span class="indicator-text">INSTAGRAM</span>
+          </span>
+        </div>
+
+        <div class="timer-display-wrap">
+          <div class="timer-display font-mono" id="feedTimerDisplay">02:45:27</div>
+        </div>
+
+        <div class="action-btn-wrap">
+          <button type="button" class="tracker-action-btn feed-btn" id="feedToggleBtn">
+            Start Scrolling
+          </button>
+          <div class="session-count-text" id="feedSessionText">2 sessions today</div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="manual-entry-section">
+          <div class="manual-label">SET MANUALLY</div>
+          <div class="manual-inputs-row">
+            <input type="number" id="feedHoursInput" class="manual-input feed-manual" placeholder="hh" min="0" max="99" />
+            <input type="number" id="feedMinutesInput" class="manual-input feed-manual" placeholder="mm" min="0" max="59" />
+          </div>
+          <button type="button" class="set-total-btn feed-set-btn" id="feedSetTotalBtn">
+            Set total
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Balance Of The Day Section -->
+    <section class="balance-section">
+      <div class="balance-tag">BALANCE OF THE DAY</div>
+
+      <!-- Ratio Progress Bar -->
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="comparisonBar">
+          <div class="progress-segment study-bar" id="studyProgressBar" style="width: 54%;"></div>
+          <div class="progress-segment feed-bar" id="feedProgressBar" style="width: 46%;"></div>
+        </div>
+        <div class="progress-labels">
+          <span class="percentage-label study-pct" id="studyPercentage">54%</span>
+          <span class="percentage-label feed-pct" id="feedPercentage">46%</span>
+        </div>
+      </div>
+
+      <!-- Stats Summary Card (4 Columns) -->
+      <div class="stats-summary-card">
+        <div class="stat-column">
+          <div class="stat-value font-mono" id="statStudyTotal">3h 12m</div>
+          <div class="stat-label">STUDY TOTAL</div>
+        </div>
+        <div class="stat-column">
+          <div class="stat-value font-mono" id="statFeedTotal">2h 45m</div>
+          <div class="stat-label">INSTAGRAM TOTAL</div>
+        </div>
+        <div class="stat-column">
+          <div class="stat-value font-mono" id="statRatio">1.2:1</div>
+          <div class="stat-label">RATIO</div>
+        </div>
+        <div class="stat-column">
+          <div class="stat-value font-mono" id="statTotalTracked">5h 57m</div>
+          <div class="stat-label">TOTAL TRACKED</div>
+        </div>
+      </div>
+
+      <!-- Dynamic Insight Callout -->
+      <div class="insight-callout" id="insightBanner">
+        <span id="insightText">Study is ahead &mdash; 1.2&times; more study time than Instagram time today.</span>
+      </div>
+
+      <!-- Reset Action -->
+      <div class="reset-wrap">
+        <button type="button" class="reset-link" id="resetBtn">RESET EVERYTHING</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="focus-vs-feed.js"></script>
+</body>
+</html>
