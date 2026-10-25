@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akshan Motghare | Portfolio // Reload</title>
+  <meta name="description" content="Personal Portfolio of Akshan Motghare - 2nd Year Computer Science & Engineering Student at Symbiosis Institute of Technology Nagpur. Skilled in AI, ML, Neural Networks, and NLP.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,700;1,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="p3r-theme">
+  <!-- Looped Background Video from folder -->
+  <div class="video-background-container">
+    <video id="bg-video" src="./background.mp4" autoplay loop muted playsinline preload="auto">
+      <source src="./background.mp4" type="video/mp4">
+    </video>
+    <div class="bg-vignette"></div>
+    <div class="bg-scanlines"></div>
+  </div>
+
+  <!-- Screen Flash / Transition Overlay -->
+  <div id="transition-slash" class="transition-slash"></div>
+
+  <!-- Audio Toggle & System Controls -->
+  <div class="sys-hud-top">
+    <div class="hud-left-meta">
+      <span class="hud-tag">SIT-NAGPUR // BE-CSE</span>
+      <span class="hud-id">ID: AKSHAN-2026</span>
+    </div>
+    <div class="hud-center-clock">
+      <span id="live-clock">00:00:00</span>
+      <span id="moon-phase" class="moon-badge" title="Current Moon Phase">🌔 GIBBOUS 78%</span>
+    </div>
+    <div class="hud-right-controls">
+      <button id="sfx-toggle" class="hud-btn" title="Toggle Sound Effects">
+        <span class="icon">🔊</span> <span class="label">SFX: ON</span>
+      </button>
+      <button id="restart-intro-btn" class="hud-btn" title="Replay Title Screen">
+        <span class="icon">↺</span> <span class="label">TITLE</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==============================================
+       SCREEN 1: TITLE / INTRO SCREEN
+  =============================================== -->
+  <section id="title-screen" class="screen-view active">
+    <div class="title-backdrop-glow"></div>
+    
+    <div class="title-content">
+      <div class="title-brand">
+        <div class="brand-sub">PORTFOLIO // COMPUTER SCIENCE &amp; ENGINEERING</div>
+        <h1 class="brand-title">AKSHAN<br><span class="title-accent">MOTGHARE</span></h1>
+        <div class="brand-tagline">
+          BE — COMPUTER SCIENCE &amp; ENGINEERING • 2ND YEAR<br>
+          <span class="location-tag">SYMBIOSIS INSTITUTE OF TECHNOLOGY, NAGPUR</span>
+        </div>
+      </div>
+
+      <div class="title-cta-wrapper">
+        <div class="title-press-prompt blink" id="press-prompt">
+          <span class="p-bracket">[</span>
+          <span class="p-text">PRESS ANY KEY OR CLICK TO ENTER</span>
+          <span class="p-bracket">]</span>
+        </div>
+        <div class="title-sub-guide">
+          <span>AI &amp; ML</span> • <span>NEURAL NETWORKS</span> • <span>NLP</span>
+        </div>
+      </div>
+
+      <div class="title-footer-creds">
+        <span>DEV: AKSHAN MOTGHARE</span>
+        <span>LOCATION: NAGPUR, INDIA</span>
+        <span>VERSION: 3.0.0 RELOAD</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       SCREEN 2: MAIN WHEEL MENU
+  =============================================== -->
+  <section id="main-menu-screen" class="screen-view hidden">
+    <!-- Top Left Details Card (Replaces Wallet Box) -->
+    <div class="details-wallet-card">
+      <div class="wallet-badge">CANDIDATE DOSSIER</div>
+      <div class="wallet-name">AKSHAN MOTGHARE</div>
+      <div class="wallet-sub">Nagpur, India • +91-8010983863</div>
+      <div class="wallet-email">akshanm1611@gmail.com</div>
+      <div class="wallet-links">
+        <a href="https://github.com/Akshan161" target="_blank" rel="noopener noreferrer" class="w-link">
+          <span class="w-ico">⌥</span> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/akshan-motghare-616a0534b/" target="_blank" rel="noopener noreferrer" class="w-link">
+          <span class="w-ico">⌘</span> LinkedIn
+        </a>
+        <button id="copy-email-top" class="w-link btn-copy" data-copy="akshanm1611@gmail.com">
+          <span class="w-ico">✉</span> Copy Email
+        </button>
+      </div>
+    </div>
+
+    <!-- Slanted Wheel Menu Navigation -->
+    <div class="p3r-menu-container">
+      <nav class="p3r-slanted-wheel" id="main-wheel-nav">
+        <button class="wheel-item active" data-target="summary" data-index="0">
+          <span class="wheel-number">01</span>
+          <span class="wheel-text">SUMMARY</span>
+          <span class="wheel-slash">/ /</span>
+        </button>
+        <button class="wheel-item" data-target="skills" data-index="1">
+          <span class="wheel-number">02</span>
+          <span class="wheel-text">SKILLS &amp; TECH</span>
+          <span class="wheel-slash">/ /</span>
+        </button>
+        <button class="wheel-item" data-target="education" data-index="2">
+          <span class="wheel-number">03</span>
+          <span class="wheel-text">EDUCATION</span>
+          <span class="wheel-slash">/ /</span>
+        </button>
+        <button class="wheel-item" data-target="certifications" data-index="3">
+          <span class="wheel-number">04</span>
+          <span class="wheel-text">CERTIFICATIONS</span>
+          <span class="wheel-slash">/ /</span>
+        </button>
+        <button class="wheel-item" data-target="projects" data-index="4">
+          <span class="wheel-number">05</span>
+          <span class="wheel-text">PROJECTS</span>
+          <span class="wheel-slash">/ /</span>
+        </button>
+        <button class="wheel-item" data-target="social" data-index="5">
+          <span class="wheel-number">06</span>
+          <span class="wheel-text">SOCIAL LINKS</span>
+          <span class="wheel-slash">/ /</span>
+        </button>
+        <button class="wheel-item" data-target="interests" data-index="6">
+          <span class="wheel-number">07</span>
+          <span class="wheel-text">READING &amp; PASSIONS</span>
+          <span class="wheel-slash">/ /</span>
+        </button>
+        <button class="wheel-item" data-target="equipment" data-index="7">
+          <span class="wheel-number">08</span>
+          <span class="wheel-text">TECH TOOLKIT</span>
+          <span class="wheel-slash">/ /</span>
+        </button>
+        <button class="wheel-item" data-target="contact" data-index="8">
+          <span class="wheel-number">09</span>
+          <span class="wheel-text">CONTACT INFO</span>
+          <span class="wheel-slash">/ /</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Active Detail Floating Summary Callout (Bottom-Right) -->
+    <div class="menu-preview-box">
+      <div class="preview-header">
+        <span class="p-indicator">▶</span>
+        <span id="preview-title">SUMMARY</span>
+      </div>
+      <div id="preview-desc" class="preview-desc">
+        Second Year Engineering Student of BE – Computer Science &amp; Engineering at Symbiosis Institute of Technology Nagpur.
+      </div>
+      <div class="preview-meta">
+        <span>STATUS: OPEN TO OPPORTUNITIES</span> • <span>FOCUS: AI &amp; ML</span>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation Legend / Guide -->
+    <div class="p3r-guide-bar">
+      <div class="guide-item"><span class="key-icon">↑ / ↓</span> Select Item</div>
+      <div class="guide-item"><span class="key-icon">ENTER / CLICK</span> Confirm &amp; Inspect</div>
+      <div class="guide-item"><span class="key-icon">ESC</span> Back to Title</div>
+      <div class="guide-action-badge">Command — View Candidate Profile</div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       SCREEN 3: DETAIL INSPECTION SCREEN (P3R Equip/Item Layout)
+  =============================================== -->
+  <section id="detail-screen" class="screen-view hidden">
+    <!-- Sub-Nav Top Bar with < L | R > arrows -->
+    <div class="detail-top-nav">
+      <button class="nav-arrow" id="nav-arrow-left" title="Previous Section">
+        <span class="arrow-shape">◀</span> <span class="nav-key">[Q / ←]</span>
+      </button>
+      <div class="detail-current-category">
+        <span class="cat-tag">DOSSIER FILE //</span>
+        <h2 id="detail-category-title">SUMMARY</h2>
+      </div>
+      <button class="nav-arrow" id="nav-arrow-right" title="Next Section">
+        <span class="nav-key">[E / →]</span> <span class="arrow-shape">▶</span>
+      </button>
+    </div>
+
+    <div class="detail-split-layout">
+      <!-- Left Leader Panel: Akshan Motghare Candidate HUD -->
+      <aside class="detail-leader-panel">
+        <div class="leader-badge-strip">
+          <span class="badge-role">CANDIDATE</span>
+          <span class="badge-tag">SIT-NAGPUR</span>
+        </div>
+        
+        <div class="leader-name-block">
+          <h3 class="leader-name">Akshan Motghare</h3>
+          <div class="leader-class">BE CSE Sophomore • Year 2</div>
+        </div>
+
+        <div class="leader-stats-bars">
+          <div class="stat-row">
+            <span class="stat-label">SEM</span>
+            <span class="stat-val">04</span>
+            <div class="stat-sub">SIT-NAGPUR</div>
+          </div>
+          <div class="stat-row hp-row">
+            <span class="stat-label">AI</span>
+            <div class="bar-track"><div class="bar-fill hp-fill" style="width: 95%;"></div></div>
+            <span class="stat-num">95<small>%</small></span>
+          </div>
+          <div class="stat-row sp-row">
+            <span class="stat-label">DEV</span>
+            <div class="bar-track"><div class="bar-fill sp-fill" style="width: 90%;"></div></div>
+            <span class="stat-num">90<small>%</small></span>
+          </div>
+        </div>
+
+        <!-- Quick Contacts Sub-card -->
+        <div class="leader-contact-card">
+          <div class="lcc-item">
+            <span class="lcc-label">LOCATION:</span>
+            <span class="lcc-value">Nagpur, India</span>
+          </div>
+          <div class="lcc-item">
+            <span class="lcc-label">PHONE:</span>
+            <a href="tel:+918010983863" class="lcc-link">+91-8010983863</a>
+          </div>
+          <div class="lcc-item">
+            <span class="lcc-label">EMAIL:</span>
+            <a href="mailto:akshanm1611@gmail.com" class="lcc-link">akshanm1611@gmail.com</a>
+          </div>
+          <div class="lcc-item">
+            <span class="lcc-label">GITHUB:</span>
+            <a href="https://github.com/Akshan161" target="_blank" rel="noopener noreferrer" class="lcc-link">github.com/Akshan161</a>
+          </div>
+          <div class="lcc-item">
+            <span class="lcc-label">LINKEDIN:</span>
+            <a href="https://www.linkedin.com/in/akshan-motghare-616a0534b/" target="_blank" rel="noopener noreferrer" class="lcc-link">in/akshan-motghare</a>
+          </div>
+        </div>
+
+        <button id="detail-back-btn" class="p3r-btn-back">
+          <span class="btn-icon">↩</span> BACK TO WHEEL
+        </button>
+      </aside>
+
+      <!-- Right Main Content Panel (Dynamically switches based on selected tab) -->
+      <main class="detail-content-panel">
+        
+        <!-- SECTION: SUMMARY -->
+        <div id="content-summary" class="tab-pane active">
+          <div class="panel-section-header">
+            <div class="ps-title">EXECUTIVE PROFILE SUMMARY</div>
+            <div class="ps-stats">CORE ATTRIBUTES • PASSION • SPECIALIZATION</div>
+          </div>
+
+          <div class="p3r-items-table">
+            <div class="p3r-table-row highlighted">
+              <div class="col-icon">▶</div>
+              <div class="col-name">Academics &amp; University</div>
+              <div class="col-desc">Second Year Engineering Student of BE – Computer Science &amp; Engineering</div>
+              <div class="col-qty">SIT Nagpur</div>
+            </div>
+            <div class="p3r-table-row">
+              <div class="col-icon">▶</div>
+              <div class="col-name">Advanced Technical Domain</div>
+              <div class="col-desc">Certified and skilled on the latest Technologies: AI, ML, Neural Networks, NLP</div>
+              <div class="col-qty">Specialized</div>
+            </div>
+            <div class="p3r-table-row">
+              <div class="col-icon">▶</div>
+              <div class="col-name">Personal Driver &amp; Ethics</div>
+              <div class="col-desc">Passionate in Studies, Deep Reading, Research, and Analytical Problem Solving</div>
+              <div class="col-qty">Dedicated</div>
+            </div>
+            <div class="p3r-table-row">
+              <div class="col-icon">▶</div>
+              <div class="col-name">Location &amp; Availability</div>
+              <div class="col-desc">Based in Nagpur, India • Open for Engineering Internships, AI/ML Projects &amp; Research</div>
+              <div class="col-qty">Available</div>
+            </div>
+          </div>
+
+          <!-- Bottom P3R Effect Box -->
+          <div class="p3r-effect-box">
+            <div class="effect-header">
+              <span class="effect-tag">PROFILE OVERVIEW //</span>
+              <span class="effect-title">Analytical Precision &amp; Continuous Study</span>
+            </div>
+            <p class="effect-body">
+              Akshan Motghare brings intense focus, systematic engineering discipline, and practical capabilities in modern artificial intelligence, deep learning architectures, and software development. Driven by curiosity and rigorous academic passion.
+            </p>
+          </div>
+        </div>
+
+        <!-- SECTION: SKILLS & TECH -->
+        <div id="content-skills" class="tab-pane">
+          <div class="panel-section-header">
+            <div class="ps-title">TECHNICAL SKILLS &amp; DOMAINS</div>
+            <div class="ps-stats">AI / ML • NEURAL NETWORKS • NLP • SYSTEM ARCHITECTURE</div>
+          </div>
+
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-affinity-badge fire">AI / ML</div>
+              <div class="skill-name">Artificial Intelligence &amp; Machine Learning</div>
+              <div class="skill-level-bar"><div class="fill" style="width: 92%;"></div></div>
+              <div class="skill-specs">Supervised / Unsupervised Learning, Regression, Classification, Scikit-Learn</div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-affinity-badge elec">DEEP LEARNING</div>
+              <div class="skill-name">Neural Networks &amp; Deep Learning</div>
+              <div class="skill-level-bar"><div class="fill" style="width: 90%;"></div></div>
+              <div class="skill-specs">CNNs, RNNs, Backpropagation, Activation Functions, PyTorch / TensorFlow Concepts</div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-affinity-badge wind">NLP</div>
+              <div class="skill-name">Natural Language Processing (NLP)</div>
+              <div class="skill-level-bar"><div class="fill" style="width: 88%;"></div></div>
+              <div class="skill-specs">Tokenization, TF-IDF, Word Embeddings, Transformers, Sentiment Analysis</div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-affinity-badge ice">PROGRAMMING</div>
+              <div class="skill-name">Python &amp; Modern Programming</div>
+              <div class="skill-level-bar"><div class="fill" style="width: 95%;"></div></div>
+              <div class="skill-specs">Python 3, NumPy, Pandas, Matplotlib, C/C++, Core Computer Science Concepts</div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-affinity-badge strike">FULL-STACK</div>
+              <div class="skill-name">Full-Stack &amp; Web Engineering</div>
+              <div class="skill-level-bar"><div class="fill" style="width: 86%;"></div></div>
+              <div class="skill-specs">Modern JavaScript (ES6+), HTML5, CSS3, DOM Manipulation, Web APIs</div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-affinity-badge light">DEV TOOLS</div>
+              <div class="skill-name">Engineering Tools &amp; Methodologies</div>
+              <div class="skill-level-bar"><div class="fill" style="width: 90%;"></div></div>
+              <div class="skill-specs">Git, GitHub, VS Code, Linux/Bash, Algorithm Design, Data Structures</div>
+            </div>
+          </div>
+
+          <div class="p3r-effect-box">
+            <div class="effect-header">
+              <span class="effect-tag">DOMAIN SPECIALIZATION //</span>
+              <span class="effect-title">Neural &amp; Language Architecture Mastery</span>
+            </div>
+            <p class="effect-body">
+              Specialized expertise in translating mathematical formulation into practical models. High proficiency across data pipelines, neural modeling, and interactive web representations.
+            </p>
+          </div>
+        </div>
+
+        <!-- SECTION: EDUCATION -->
+        <div id="content-education" class="tab-pane">
+          <div class="panel-section-header">
+            <div class="ps-title">ACADEMIC BACKGROUND &amp; INSTITUTION</div>
+            <div class="ps-stats">SYMBIOSIS INSTITUTE OF TECHNOLOGY • NAGPUR</div>
+          </div>
+
+          <div class="p3r-items-table">
+            <div class="p3r-table-row highlighted">
+              <div class="col-icon">🎓</div>
+              <div class="col-name">Bachelor of Engineering (BE)</div>
+              <div class="col-desc">Computer Science &amp; Engineering (CSE)</div>
+              <div class="col-qty">2nd Year (Sophomore)</div>
+            </div>
+            <div class="p3r-table-row">
+              <div class="col-icon">🏛</div>
+              <div class="col-name">Institution</div>
+              <div class="col-desc">Symbiosis Institute of Technology (SIT), Nagpur</div>
+              <div class="col-qty">Nagpur, India</div>
+            </div>
+            <div class="p3r-table-row">
+              <div class="col-icon">📚</div>
+              <div class="col-name">Key Coursework</div>
+              <div class="col-desc">Data Structures &amp; Algorithms, Object-Oriented Programming, Database Management Systems, Discrete Mathematics, Computer Organization</div>
+              <div class="col-qty">Core CSE</div>
+            </div>
+            <div class="p3r-table-row">
+              <div class="col-icon">⚡</div>
+              <div class="col-name">Laboratory Work &amp; Practicals</div>
+              <div class="col-desc">JavaScript Programming Laboratory, Data Structures Lab, Algorithms, System Software</div>
+              <div class="col-qty">Active</div>
+            </div>
+          </div>
+
+          <div class="p3r-effect-box">
+            <div class="effect-header">
+              <span class="effect-tag">ACADEMIC RIGOR //</span>
+              <span class="effect-title">Rigorous Engineering Pedagogy</span>
+            </div>
+            <p class="effect-body">
+              Enrolled in one of India's premier engineering institutions, pursuing a rigorous syllabus focused on computing theory, mathematical foundations, and forward-looking AI advancements.
+            </p>
+          </div>
+        </div>
+
+        <!-- SECTION: CERTIFICATIONS -->
+        <div id="content-certifications" class="tab-pane">
+          <div class="panel-section-header">
+            <div class="ps-title">SPECIALIZED CERTIFICATIONS</div>
+            <div class="ps-stats">AGENTIC AI • UI/UX • LINUX • ALGORITHMS • DBMS</div>
+          </div>
+
+          <div class="p3r-items-table">
+            <div class="p3r-table-row highlighted">
+              <div class="col-icon">🏅</div>
+              <div class="col-name">Mastering Agentic AI Automation</div>
+              <div class="col-desc">Autonomous agent workflows, tool-use orchestration, multi-agent coordination, and automated reasoning pipelines</div>
+              <div class="col-qty">Certified</div>
+            </div>
+            <div class="p3r-table-row">
+              <div class="col-icon">🏅</div>
+              <div class="col-name">User Interface and Experience Design</div>
+              <div class="col-desc">Modern UI/UX design heuristics, interactive prototyping, accessibility standards, and responsive design systems</div>
+              <div class="col-qty">Certified</div>
+            </div>
+            <div class="p3r-table-row">
+              <div class="col-icon">🏅</div>
+              <div class="col-name">Linux System Administration</div>
+              <div class="col-desc">POSIX environment mastery, shell scripting, process scheduling, system security, permissions, and network configuration</div>
+              <div class="col-qty">Certified</div>
+            </div>
+            <div class="p3r-table-row">
+              <div class="col-icon">🏅</div>
+              <div class="col-name">Data Analysis of Algorithms</div>
+              <div class="col-desc">Asymptotic complexity analysis, graph algorithms, dynamic programming, algorithmic optimization, and computational bounds</div>
+              <div class="col-qty">Certified</div>
+            </div>
+            <div class="p3r-table-row">
+              <div class="col-icon">🏅</div>
+              <div class="col-name">Database Management Systems</div>
+              <div class="col-desc">Relational schema design, normalization (1NF–BCNF), SQL query optimization, ACID compliance, and indexing strategies</div>
+              <div class="col-qty">Certified</div>
+            </div>
+          </div>
+
+          <div class="p3r-effect-box">
+            <div class="effect-header">
+              <span class="effect-tag">VERIFIED CREDENTIALS //</span>
+              <span class="effect-title">Verified Domain Competence</span>
+            </div>
+            <p class="effect-body">
+              Validated industry and academic credentials spanning cutting-edge Agentic AI engineering, human-centered UI/UX design, foundational system administration, algorithmic complexity, and enterprise data management.
+            </p>
+          </div>
+        </div>
+
+        <!-- SECTION: PROJECTS -->
+        <div id="content-projects" class="tab-pane">
+          <div class="panel-section-header">
+            <div class="ps-title">FEATURED PROJECTS &amp; LABS</div>
+            <div class="ps-stats">AI SYSTEMS • NLP ENGINES • WEB PLATFORMS</div>
+          </div>
+
+          <div class="projects-list">
+            <div class="project-card">
+              <div class="project-header">
+                <span class="proj-id">P-01</span>
+                <h4 class="proj-title">NLP Sentiment &amp; Text Classification Engine</h4>
+                <span class="proj-badge">AI / NLP</span>
+              </div>
+              <p class="proj-desc">
+                An intelligent natural language processing pipeline that ingests, tokenizes, and classifies text corpus into sentimental and contextual clusters with high accuracy metrics.
+              </p>
+              <div class="proj-techs">
+                <span>Python</span> <span>NLP</span> <span>Scikit-Learn</span> <span>TF-IDF</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-header">
+                <span class="proj-id">P-02</span>
+                <h4 class="proj-title">Deep Learning Neural Classification Model</h4>
+                <span class="proj-badge">NEURAL NETWORKS</span>
+              </div>
+              <p class="proj-desc">
+                Multi-layer neural network architecture trained for feature extraction and pattern recognition, demonstrating loss minimization, backpropagation, and regularization techniques.
+              </p>
+              <div class="proj-techs">
+                <span>Deep Learning</span> <span>Neural Networks</span> <span>NumPy</span> <span>Python</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-header">
+                <span class="proj-id">P-03</span>
+                <h4 class="proj-title">Student Records &amp; Academic Management System</h4>
+                <span class="proj-badge">FULL-STACK</span>
+              </div>
+              <p class="proj-desc">
+                Interactive web application for student record management, course schedules, and grade analysis with dynamic state management and instant search filtering.
+              </p>
+              <div class="proj-techs">
+                <span>JavaScript</span> <span>DOM API</span> <span>Responsive CSS</span> <span>Data Structures</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-header">
+                <span class="proj-id">P-04</span>
+                <h4 class="proj-title">Persona 3 Reload Themed Self-Introduction Portfolio</h4>
+                <span class="proj-badge">SHOWCASE</span>
+              </div>
+              <p class="proj-desc">
+                High-fidelity, interactive game-inspired portfolio featuring real-time Web Audio API sound effects, dynamic wheel navigation, responsive HUD, and seamless video integration.
+              </p>
+              <div class="proj-techs">
+                <span>HTML5 Video</span> <span>Web Audio API</span> <span>Vanilla CSS</span> <span>JavaScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION: SOCIAL LINKS -->
+        <div id="content-social" class="tab-pane">
+          <div class="panel-section-header">
+            <div class="ps-title">SOCIAL LINKS // PROFESSIONAL CHANNELS</div>
+            <div class="ps-stats">CONNECTIONS • REPOSITORIES • DISPATCH</div>
+          </div>
+
+          <div class="social-links-grid">
+            <a href="https://github.com/Akshan161" target="_blank" rel="noopener noreferrer" class="slink-card">
+              <div class="slink-arcana">CODE REPOSITORY</div>
+              <div class="slink-title">GitHub Profile</div>
+              <div class="slink-handle">@Akshan161</div>
+              <div class="slink-desc">Explore public repositories, laboratory experiments, code bases, and academic submissions.</div>
+              <div class="slink-action">OPEN REPOSITORY ↗</div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/akshan-motghare-616a0534b/" target="_blank" rel="noopener noreferrer" class="slink-card">
+              <div class="slink-arcana">PROFESSIONAL NETWORK</div>
+              <div class="slink-title">LinkedIn Network</div>
+              <div class="slink-handle">in/akshan-motghare-616a0534b</div>
+              <div class="slink-desc">Connect professionally, review academic milestones, recommendations, and industry updates.</div>
+              <div class="slink-action">CONNECT ON LINKEDIN ↗</div>
+            </a>
+
+            <a href="mailto:akshanm1611@gmail.com" class="slink-card">
+              <div class="slink-arcana">DIRECT EMAIL</div>
+              <div class="slink-title">Direct Mailbox</div>
+              <div class="slink-handle">akshanm1611@gmail.com</div>
+              <div class="slink-desc">Direct communications for project inquiries, internships, research collaboration, and queries.</div>
+              <div class="slink-action">COMPOSE EMAIL ↗</div>
+            </a>
+
+            <a href="tel:+918010983863" class="slink-card">
+              <div class="slink-arcana">TELEPHONE CONTACT</div>
+              <div class="slink-title">Direct Voice Line</div>
+              <div class="slink-handle">+91-8010983863</div>
+              <div class="slink-desc">Telephone dispatch based in Nagpur, Maharashtra, India. Available for professional calls.</div>
+              <div class="slink-action">CALL NUMBER ↗</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- SECTION: READING & PASSIONS -->
+        <div id="content-interests" class="tab-pane">
+          <div class="panel-section-header">
+            <div class="ps-title">READING &amp; INTELLECTUAL PASSIONS</div>
+            <div class="ps-stats">CURATED LITERARY CANON • PHILOSOPHY • STRATEGY • SCIENCE</div>
+          </div>
+
+          <div class="p3r-items-table">
+            <div class="p3r-table-row highlighted">
+              <div class="col-icon">📖</div>
+              <div class="col-name">Wings of Fire</div>
+              <div class="col-desc">Dr. A.P.J. Abdul Kalam • An inspiring autobiographical testament to scientific rigor, resilience, and vision</div>
+              <div class="col-qty">Inspirational</div>
+            </div>
+
+            <div class="p3r-table-row">
+              <div class="col-icon">👑</div>
+              <div class="col-name">Il Principe (The Prince)</div>
+              <div class="col-desc">Niccolò Machiavelli • Seminal treatise on pragmatism, strategic statecraft, and realpolitik dynamics</div>
+              <div class="col-qty">Philosophy</div>
+            </div>
+
+            <div class="p3r-table-row">
+              <div class="col-icon">⚔</div>
+              <div class="col-name">The Art of War</div>
+              <div class="col-desc">Sun Tzu • Timeless tactical philosophy on preparation, calculation, deception, and systemic adaptability</div>
+              <div class="col-qty">Strategy</div>
+            </div>
+
+            <div class="p3r-table-row">
+              <div class="col-icon">🧘</div>
+              <div class="col-name">The Complete Book of Yoga</div>
+              <div class="col-desc">Swami Vivekananda • Holistic exploration of mental control, Raja/Jnana Yoga, and disciplined consciousness</div>
+              <div class="col-qty">Mind &amp; Focus</div>
+            </div>
+
+            <div class="p3r-table-row">
+              <div class="col-icon">🔍</div>
+              <div class="col-name">Agatha Christie Mystery Classics</div>
+              <div class="col-desc">And Then There Were None, The Murder of Roger Ackroyd • Masterclasses in deductive reasoning &amp; plot puzzles</div>
+              <div class="col-qty">Deductive</div>
+            </div>
+
+            <div class="p3r-table-row">
+              <div class="col-icon">⚡</div>
+              <div class="col-name">Harry Potter Series</div>
+              <div class="col-desc">J.K. Rowling • Rich imaginative worldbuilding, themes of loyalty, moral courage, and perseverance</div>
+              <div class="col-qty">Fiction</div>
+            </div>
+
+            <div class="p3r-table-row">
+              <div class="col-icon">📑</div>
+              <div class="col-name">AI &amp; Computing Literature</div>
+              <div class="col-desc">Deep Learning textbooks, algorithmic complexity texts, and contemporary arXiv preprints on LLMs &amp; Transformers</div>
+              <div class="col-qty">Research</div>
+            </div>
+          </div>
+
+          <div class="p3r-effect-box">
+            <div class="effect-header">
+              <span class="effect-tag">INTELLECTUAL DRIVE //</span>
+              <span class="effect-title">Passionate in Studies and Reading</span>
+            </div>
+            <p class="effect-body">
+              "Continuous study is not just an academic obligation, but a personal calling." Akshan is driven by intellectual curiosity across classic strategy, profound spiritual philosophy, analytical mystery fiction, and modern scientific literature.
+            </p>
+          </div>
+        </div>
+
+        <!-- SECTION: TECH TOOLKIT (Professional Developer Stack) -->
+        <div id="content-equipment" class="tab-pane">
+          <div class="panel-section-header">
+            <div class="ps-title">DEVELOPER ENVIRONMENT &amp; TOOLKIT</div>
+            <div class="ps-stats">CORE TECHNOLOGIES • FRAMEWORKS • WORKFLOWS</div>
+          </div>
+
+          <div class="p3r-items-table">
+            <div class="p3r-table-row highlighted">
+              <div class="col-icon">⚡</div>
+              <div class="col-name">Primary Languages</div>
+              <div class="col-desc">Python 3.12 &amp; Modern C++ • Algorithmic execution, data pipelines &amp; scripting</div>
+              <div class="col-qty">Primary</div>
+            </div>
+            <div class="p3r-table-row">
+              <div class="col-icon">🏛</div>
+              <div class="col-name">Core Computer Science</div>
+              <div class="col-desc">Data Structures, Algorithms, Complexity Analysis, Object-Oriented Design</div>
+              <div class="col-qty">Foundation</div>
+            </div>
+            <div class="p3r-table-row">
+              <div class="col-icon">🔧</div>
+              <div class="col-name">Development Toolchain</div>
+              <div class="col-desc">VS Code, Git &amp; GitHub Version Control, PowerShell / Bash, Linux Environments</div>
+              <div class="col-qty">Workflow</div>
+            </div>
+            <div class="p3r-table-row">
+              <div class="col-icon">🧠</div>
+              <div class="col-name">AI &amp; Data Frameworks</div>
+              <div class="col-desc">Scikit-Learn, PyTorch / TensorFlow concepts, NumPy, Pandas, Matplotlib</div>
+              <div class="col-qty">Specialization</div>
+            </div>
+            <div class="p3r-table-row">
+              <div class="col-icon">🌐</div>
+              <div class="col-name">Web &amp; Application Systems</div>
+              <div class="col-desc">Modern JavaScript (ES6+), HTML5, Responsive CSS3, Web APIs &amp; DOM</div>
+              <div class="col-qty">Applied</div>
+            </div>
+          </div>
+
+          <div class="p3r-effect-box">
+            <div class="effect-header">
+              <span class="effect-tag">TOOLKIT SYNTHESIS //</span>
+              <span class="effect-title">End-to-End Engineering Delivery</span>
+            </div>
+            <p class="effect-body">
+              Equipped with a modern development ecosystem optimized for rapid prototyping, rigorous mathematical formulation, clean version-controlled code, and scalable software delivery.
+            </p>
+          </div>
+        </div>
+
+        <!-- SECTION: CONTACT INFO -->
+        <div id="content-contact" class="tab-pane">
+          <div class="panel-section-header">
+            <div class="ps-title">TRANSMISSION TERMINAL // CONTACT DETAILS</div>
+            <div class="ps-stats">NAGPUR, INDIA • DIRECT DISPATCH CHANNEL</div>
+          </div>
+
+          <div class="contact-split">
+            <div class="contact-info-list">
+              <div class="ci-card">
+                <span class="ci-label">CANDIDATE:</span>
+                <span class="ci-val">Akshan Motghare</span>
+              </div>
+              <div class="ci-card">
+                <span class="ci-label">BASE LOCATION:</span>
+                <span class="ci-val">Nagpur, Maharashtra, India</span>
+              </div>
+              <div class="ci-card">
+                <span class="ci-label">EMAIL ADDRESS:</span>
+                <span class="ci-val highlight">akshanm1611@gmail.com</span>
+                <button class="ci-copy-btn btn-copy" data-copy="akshanm1611@gmail.com">COPY EMAIL</button>
+              </div>
+              <div class="ci-card">
+                <span class="ci-label">PHONE NUMBER:</span>
+                <span class="ci-val highlight">+91-8010983863</span>
+                <button class="ci-copy-btn btn-copy" data-copy="+918010983863">COPY PHONE</button>
+              </div>
+              <div class="ci-card">
+                <span class="ci-label">INSTITUTION:</span>
+                <span class="ci-val">Symbiosis Institute of Technology, Nagpur</span>
+              </div>
+            </div>
+
+            <!-- Direct Contact Dispatch Form -->
+            <form id="contact-form" class="contact-form-p3r" onsubmit="return false;">
+              <div class="form-title">INITIATE TRANSMISSION</div>
+              <div class="form-group">
+                <label for="sender-name">YOUR NAME / ORGANIZATION</label>
+                <input type="text" id="sender-name" placeholder="e.g. Recruiter / Collaborator" required>
+              </div>
+              <div class="form-group">
+                <label for="sender-email">YOUR EMAIL</label>
+                <input type="email" id="sender-email" placeholder="e.g. contact@domain.com" required>
+              </div>
+              <div class="form-group">
+                <label for="sender-msg">MESSAGE / INQUIRY</label>
+                <textarea id="sender-msg" rows="4" placeholder="Discussing engineering opportunities, projects or research..." required></textarea>
+              </div>
+              <button type="submit" id="btn-send-dispatch" class="btn-dispatch">
+                <span class="btn-icon">⚡</span> DISPATCH TRANSMISSION
+              </button>
+              <div id="form-feedback" class="form-feedback"></div>
+            </form>
+          </div>
+        </div>
+
+      </main>
+    </div>
+
+    <!-- Bottom Navigation Legend / Guide -->
+    <div class="p3r-guide-bar">
+      <div class="guide-item"><span class="key-icon">Q / E or ← / →</span> Switch Section</div>
+      <div class="guide-item"><span class="key-icon">ESC</span> Back to Main Menu</div>
+      <div class="guide-item"><span class="key-icon">M</span> Toggle Audio</div>
+      <div class="guide-action-badge">Candidate Status: Active &amp; Ready</div>
+    </div>
+  </section>
+
+  <!-- Notification Toast -->
+  <div id="p3r-toast" class="p3r-toast">COPIED TO CLIPBOARD</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
