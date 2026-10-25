@@ -1,0 +1,538 @@
+/* ==========================================================
+   Focus // Feed - Study vs Instagram Calculator Stylesheet
+   Designed for Akshan Motghare (PRN: 24070521276)
+   ========================================================== */
+
+:root {
+  --bg-dark: #060a12;
+  --card-dark: #070e1c;
+  --card-dark-inner: #0b1528;
+  --border-dark: #1e293b;
+  
+  --study-bg: #f8fafc;
+  --study-border: #e2e8f0;
+  --study-accent: #0284c7;
+  --study-light-blue: #e0f2fe;
+
+  --feed-accent: #38bdf8;
+  --feed-blue: #0ea5e9;
+
+  --text-white: #ffffff;
+  --text-slate: #cbd5e1;
+  --text-muted: #64748b;
+  --text-dark: #0f172a;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', Menlo, Monaco, Consolas, monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px 60px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-wrapper {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================
+   Header Styles
+   ========================================================== */
+.app-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.header-pretitle {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  user-select: none;
+}
+
+.header-title {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.focus-part {
+  color: #0284c7;
+}
+
+.slash-part {
+  color: #334155;
+  margin: 0 4px;
+}
+
+.feed-part {
+  color: #38bdf8;
+}
+
+.header-description {
+  font-size: 13.5px;
+  color: #64748b;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.student-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--border-dark);
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.student-meta-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #10b981;
+}
+
+/* ==========================================================
+   Dual Tracker Card (Split Screen Card)
+   ========================================================== */
+.dual-tracker-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--border-dark);
+  margin-bottom: 36px;
+}
+
+@media (max-width: 768px) {
+  .dual-tracker-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tracker-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 44px 32px 36px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* Study Column (Left / Light Side) */
+.study-column {
+  background-color: var(--study-bg);
+  color: var(--text-dark);
+}
+
+.study-column .status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.study-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--study-accent);
+  border-radius: 50%;
+}
+
+.study-column .indicator-text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #0369a1;
+}
+
+.study-column .timer-display {
+  font-size: 46px;
+  font-weight: 700;
+  color: #cbd5e1; /* Faint gray when idle as seen in screenshot */
+  margin: 32px 0 24px;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.study-column.active-running .timer-display {
+  color: #0f172a;
+}
+
+.study-btn {
+  background: transparent;
+  border: 1.5px solid #0284c7;
+  color: #0284c7;
+}
+
+.study-btn:hover {
+  background: rgba(2, 132, 199, 0.08);
+}
+
+.study-column.active-running .study-btn {
+  background: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+}
+
+/* Feed Column (Right / Dark Side) */
+.feed-column {
+  background-color: var(--card-dark);
+  color: var(--text-white);
+  border-left: 1px solid var(--border-dark);
+}
+
+@media (max-width: 768px) {
+  .feed-column {
+    border-left: none;
+    border-top: 1px solid var(--border-dark);
+  }
+}
+
+.feed-column .status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feed-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--feed-accent);
+  border-radius: 50%;
+}
+
+.feed-column .indicator-text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #64748b;
+}
+
+.feed-column .timer-display {
+  font-size: 46px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 32px 0 24px;
+  letter-spacing: 1px;
+}
+
+.feed-btn {
+  background: transparent;
+  border: 1.5px solid #0284c7;
+  color: #38bdf8;
+}
+
+.feed-btn:hover {
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.feed-column.active-running .feed-btn {
+  background: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+}
+
+/* Shared Tracker Controls */
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.action-btn-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.tracker-action-btn {
+  padding: 11px 34px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.session-count-text {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 12px;
+}
+
+.section-divider {
+  width: 60%;
+  height: 1px;
+  border-top: 1px dotted rgba(148, 163, 184, 0.4);
+  margin: 26px auto 20px;
+}
+
+.manual-entry-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.manual-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.manual-inputs-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.manual-input {
+  width: 48px;
+  height: 36px;
+  border-radius: 6px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  font-weight: 600;
+  outline: none;
+  transition: border-color 0.2s;
+  -moz-appearance: textfield;
+}
+
+.manual-input::-webkit-outer-spin-button,
+.manual-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.study-manual {
+  background: #e0f2fe;
+  border: 1px solid #bae6fd;
+  color: #0369a1;
+}
+
+.study-manual:focus {
+  border-color: #0284c7;
+}
+
+.feed-manual {
+  background: #09101d;
+  border: 1px solid #1e293b;
+  color: #ffffff;
+}
+
+.feed-manual:focus {
+  border-color: #38bdf8;
+}
+
+.set-total-btn {
+  padding: 5px 16px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.study-set-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #64748b;
+}
+
+.study-set-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.feed-set-btn {
+  background: #09101d;
+  border: 1px solid #1e293b;
+  color: #64748b;
+}
+
+.feed-set-btn:hover {
+  background: #0f1c32;
+  color: #cbd5e1;
+}
+
+/* ==========================================================
+   Balance Of The Day Section
+   ========================================================== */
+.balance-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.balance-tag {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #475569;
+  text-align: center;
+  margin-bottom: 18px;
+  user-select: none;
+}
+
+/* Comparison Bar */
+.progress-bar-container {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 9999px;
+  background: #09101d;
+  display: flex;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.progress-segment {
+  height: 100%;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.study-bar {
+  background-color: #1e3a8a; /* Deep study blue */
+}
+
+.feed-bar {
+  background-color: #38bdf8; /* Bright feed cyan */
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.percentage-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #38bdf8;
+  font-family: var(--font-mono);
+}
+
+/* Stats Summary Card (4 Columns) */
+.stats-summary-card {
+  background-color: var(--card-dark);
+  border: 1px solid var(--border-dark);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 24px 0;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 680px) {
+  .stats-summary-card {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+  }
+}
+
+.stat-column {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.stat-column:not(:last-child) {
+  border-right: 1px solid var(--border-dark);
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+}
+
+#statStudyTotal,
+#statFeedTotal {
+  color: #38bdf8;
+}
+
+#statRatio,
+#statTotalTracked {
+  color: #ffffff;
+}
+
+.stat-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #64748b;
+}
+
+/* Insight Callout Banner */
+.insight-callout {
+  background-color: var(--card-dark);
+  border: 1px solid var(--border-dark);
+  border-radius: 10px;
+  padding: 16px 24px;
+  text-align: center;
+  color: #f1f5f9;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+/* Reset Everything Button */
+.reset-wrap {
+  text-align: center;
+}
+
+.reset-link {
+  background: none;
+  border: none;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  outline: none;
+}
+
+.reset-link:hover {
+  color: #ef4444;
+}

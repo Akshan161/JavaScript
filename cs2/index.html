@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equinox - Premium Electronics Store</title>
+  <meta name="description" content="Discover cutting-edge technology at unbeatable prices. From powerful laptops to sleek smartphones — your next upgrade starts here." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="site-header" id="site-header">
+    <div class="nav-container">
+      <a href="#" class="logo" id="site-logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">EQUINOX</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#products" class="nav-link active" id="nav-products">Products</a></li>
+          <li>
+            <a href="#checkout" class="nav-link" id="nav-checkout">
+              Checkout <span class="cart-counter" id="nav-cart-badge" style="display: none;">0</span>
+            </a>
+          </li>
+          <li><a href="#orders" class="nav-link" id="nav-orders">Orders</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Store View -->
+  <main id="main-store-view">
+
+    <!-- Hero Section (Screenshot 1 Top) -->
+    <section class="hero-section" id="hero-section">
+      <div class="hero-badge">
+        <span class="bolt">⚡</span> Premium Electronics Store
+      </div>
+      <h1 class="hero-title">
+        Welcome to<br />
+        <span class="gradient-text">Equinox</span>
+      </h1>
+      <p class="hero-subtitle">
+        Discover cutting-edge technology at unbeatable prices. From powerful laptops to sleek smartphones — your next upgrade starts here.
+      </p>
+      <button class="btn-hero" id="hero-explore-btn">
+        Explore Products <span>→</span>
+      </button>
+    </section>
+
+    <!-- Featured Products Section (Screenshot 1 Bottom & Screenshot 2 Bottom) -->
+    <section class="section" id="featured-products-section">
+      <div class="section-header">
+        <div class="section-badge">OUR COLLECTION</div>
+        <h2 class="section-title">
+          Featured <span class="gradient-text">Products</span>
+        </h2>
+        <p class="section-subtitle">
+          Handpicked electronics with the best performance and value
+        </p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="filter-tabs" id="filter-tabs">
+        <button class="filter-btn active" data-category="all" id="filter-all">All</button>
+        <button class="filter-btn" data-category="laptops" id="filter-laptops">Laptops</button>
+        <button class="filter-btn" data-category="mobiles" id="filter-mobiles">Mobiles</button>
+        <button class="filter-btn" data-category="tablets" id="filter-tablets">Tablets</button>
+        <button class="filter-btn" data-category="accessories" id="filter-accessories">Accessories</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="products-grid">
+        <!-- Products injected by JavaScript -->
+      </div>
+    </section>
+
+    <!-- Checkout Section (Screenshot 2 Top) -->
+    <section class="section" id="checkout-section">
+      <div class="checkout-section">
+        
+        <!-- Left Column: Your Cart -->
+        <div class="checkout-card" id="cart-card">
+          <div class="card-title-bar">
+            <span class="icon">🛒</span>
+            <span>Your Cart</span>
+          </div>
+          <div id="cart-contents">
+            <div class="cart-empty-message">
+              Your cart is empty. Add products above!
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Customer Details -->
+        <div class="checkout-card" id="customer-details-card">
+          <div class="card-title-bar">
+            <span class="icon">👤</span>
+            <span>Customer Details</span>
+          </div>
+          <form class="customer-form" id="checkout-form">
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="cust-name">Full Name</label>
+                <input type="text" id="cust-name" class="form-control" placeholder="John Doe" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cust-email">Email Address</label>
+                <input type="email" id="cust-email" class="form-control" placeholder="john@example.com" required />
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="cust-phone">Phone Number</label>
+                <input type="tel" id="cust-phone" class="form-control" placeholder="+91 98765 43210" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cust-city">City</label>
+                <input type="text" id="cust-city" class="form-control" placeholder="Mumbai" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cust-address">Shipping Address</label>
+              <textarea id="cust-address" class="form-control" rows="3" placeholder="Enter your full shipping address..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cust-pincode">Pin Code</label>
+              <input type="text" id="cust-pincode" class="form-control" placeholder="400001" required />
+            </div>
+
+            <button type="submit" class="btn-place-order" id="place-order-btn">
+              Place Order 🚀
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Order Confirmation Screen (Screenshot 3 Top) -->
+  <section id="order-confirmation-view" class="section" style="display: none;">
+    <!-- Injected dynamically on order placement -->
+  </section>
+
+  <!-- Orders History Screen -->
+  <section id="orders-history-view" style="display: none;">
+    <!-- Injected dynamically on orders nav click -->
+  </section>
+
+  <!-- Invoice Modal (Screenshot 3 Bottom) -->
+  <div class="modal-overlay" id="invoice-modal">
+    <div class="modal-content-wrap">
+      <button class="modal-close-btn" onclick="closeInvoiceModal()" title="Close Invoice">✕</button>
+      <div class="modal-toolbar">
+        <div class="modal-toolbar-title">
+          <span>📄</span> Official Tax Invoice Preview
+        </div>
+        <button class="btn-print-action" onclick="printInvoice()">
+          🖨️ Print / Save PDF
+        </button>
+      </div>
+      <div id="invoice-modal-content">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
